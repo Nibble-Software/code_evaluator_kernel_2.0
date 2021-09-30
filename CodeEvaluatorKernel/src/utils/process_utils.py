@@ -32,7 +32,7 @@ def no_input_execution(process: Popen) -> [str]:
 
         data = data.decode('latin1').split('\n')
 
-        data = [item for item in data if item != '']
+        data = [item.replace('\r', '') for item in data if item != '']
 
         process.stdin.close()
 
