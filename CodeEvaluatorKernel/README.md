@@ -1,10 +1,11 @@
-#Code evaluator kernel
+# Code evaluator kernel
 
-##Author: Marcelo de Jesús Núñez
-developed for the Nibble team
+**Author: Marcelo de Jesús Núñez**
+
+Developed for the **Nibble team**
 
 ## Overview
-this library contains an automated black box 
+This library contains an automated black box 
 code evaluation for c++ and python. 
 Using the path of the source file, and array of inputs and 
 outputs the system will evaluate the provided code and respond
@@ -41,25 +42,25 @@ The kernel will return a dictionary containing:
 ## Possible Responses
 
 ### PASSED
-this message indicates that the code passed the test
+This message indicates that the code passed the test
 
 ### FAILED
-this message indicades that the code didn't respond the same as the 
+This message indicades that the code didn't respond the same as the 
 specified outputs
 
 ### COMPILATION_ERROR
-in this case, for compilated languages (e.g c++) it will
+In this case, for compilated languages (e.g c++) it will
 a message indicating that the source has a compilation error
 
 ### EXECUTION_ERROR
-in case that the return code of the execution is not 0, the library
+In case that the return code of the execution is not 0, the library
 will return this message
 
 ### TIMEOUT_ERROR
-the evaluation will wait only 10 seconds, after that it 
+The evaluation will wait only 10 seconds, after that it 
 will raise a timeout error
 
 # Contact
-- E-mail: [mdjnunez9706@gmail.com](mdjnunez9706@gmail.com)
+- E-mail: [mdjnunez9706@gmail.com](mailto:mdjnunez9706@gmail.com)
 - Github: [chelo154](https://github.com/chelo154)
 - Linkedin [Marcelo de Jesús Núñez](https://www.linkedin.com/in/marcelo-de-jesús-nuñez-490b05191/)
