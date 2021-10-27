@@ -9,7 +9,7 @@ def run_cpp(filepath: str, inputs: [str]) -> [str]:
 
     executable_path = compile_cpp(filepath)
 
-    outputs = run_code(executable_path, inputs, inputs)
+    outputs = run_code(executable_path, None, inputs)
 
     return outputs
 

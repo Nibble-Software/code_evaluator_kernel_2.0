@@ -8,7 +8,7 @@ status: [str] = ['PASSED', 'FAILED', 'COMPILATION_ERROR', 'EXECUTION_ERROR', 'TI
 
 def run_exercise(language: str, solution_filepath: str, inputs: [str], outputs: [str]) -> (str, [str]):
     try:
-        results = get_runner(language)(solution_filepath,inputs)
+        results = get_runner(language)(solution_filepath, inputs)
         if outputs == results:
             return status[0], results
         else:
@@ -21,8 +21,8 @@ def run_exercise(language: str, solution_filepath: str, inputs: [str], outputs: 
         return status[3], []
 
     except CodeTimeoutError as error:
-        return status[4],[]
+        return status[4], []
 
-    except Exception as exeption:
-        raise exeption
+    except Exception as exception:
+        raise exception
 

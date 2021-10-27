@@ -2,6 +2,7 @@ import subprocess
 from subprocess import PIPE, TimeoutExpired, Popen
 from src.exceptions.FailedProcessError import FailedProcessError
 from src.exceptions.CodeTimeoutError import CodeTimeoutError
+from src.exceptions.ExecutionError import ExecutionError
 
 
 def run_process(process_name: str, args: [str]):
@@ -40,6 +41,9 @@ def no_input_execution(process: Popen) -> [str]:
 
         process.stderr.close()
 
+        if process.returncode != 0:
+            raise ExecutionError()
+
         return data
 
     except TimeoutExpired as timeout:
@@ -72,6 +76,9 @@ def input_execution(process: Popen, inputs: [str]) -> [str]:
         process.terminate()
 
         print(data)
+
+        if process.returncode != 0:
+            raise ExecutionError()
 
         return data
 

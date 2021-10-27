@@ -1,14 +1,12 @@
 import pytest
-from src.config.dotenv_loader import load_dotenv_variables
 from src.exercise.tester import run_exercise
 from test.mock.file_mocker import generate_file
 
 
 def test_success_on_hello_world():
     msg_expected = 'PASSED'
-    results_expected = ['HELLO WORLD']
 
-    load_dotenv_variables()
+    results_expected = ['HELLO WORLD']
 
     code = '''
     #include <stdio.h>
@@ -31,8 +29,6 @@ def test_fail_on_hello_world():
 
     results_expected = ['BYE WORLD']
 
-    load_dotenv_variables()
-
     code = '''
     #include <stdio.h>
     int main(){
@@ -54,8 +50,6 @@ def test_compilation_error_on_hello_world():
 
     results_expected = []
 
-    load_dotenv_variables()
-
     code = '''
     #include <stdio.h>
     int main(){
@@ -66,6 +60,22 @@ def test_compilation_error_on_hello_world():
     filename = generate_file(code, 'cpp')
 
     msg, results = run_exercise('c++', filename, None, ['HELLO WORLD'])
+
+    assert msg == msg_expected
+
+    assert results_expected == results
+
+
+def test_succes_on_hello_world_py():
+    msg_expected = 'PASSED'
+
+    results_expected = ['HELLO WORLD']
+
+    code = '''print("HELLO WORLD")'''
+
+    filename = generate_file(code, 'py')
+
+    msg, results = run_exercise('python', filename, None, ['HELLO WORLD'])
 
     assert msg == msg_expected
 
