@@ -154,9 +154,9 @@ def test_failed_execution():
                #include <stdio.h>
                int main(){
                    int a,b;
-                   scanf("%d",a);
+                   scanf("%d",&a);
                    scanf("%d",&b);
-                   printf("%d",a+b);
+                   printf("%d",a/0);
                    return 0;
                }
                '''
@@ -165,7 +165,7 @@ def test_failed_execution():
 
         results: [str] = run_cpp(filename, inputs)
 
-        fail()
+        fail("The test passes and doesn't have code -1")
 
     except ExecutionError as error:
         pass
