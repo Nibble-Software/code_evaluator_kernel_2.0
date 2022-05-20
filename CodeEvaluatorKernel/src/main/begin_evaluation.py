@@ -1,9 +1,9 @@
-from src.exercise.tester import run_exercise
+from src.exercise.run_exercise import run_exercise
 
 
-def begin_evaluation(language: str, solution_filepath: str, inputs: [str], outputs: [str]) -> dict:
+def begin_evaluation(language: str, solution: str, inputs: [str], outputs: [str]) -> dict:
 
-    status, results = run_exercise(language, solution_filepath, inputs, outputs)
+    status, results = run_exercise(language, solution, inputs, outputs)
 
     overview = {
         'status': status,

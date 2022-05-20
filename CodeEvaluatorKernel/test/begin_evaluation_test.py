@@ -20,9 +20,7 @@ def test_success_on_hello_world_cpp():
         return 0;
     }'''
 
-    filename = generate_file(code, 'cpp')
-
-    overview = begin_evaluation('c++', filename, None, outputs)
+    overview = begin_evaluation('c++', code, None, outputs)
 
     assert expected == overview
 
@@ -44,9 +42,7 @@ def test_failed_on_hello_world_cpp():
         return 0;
     }'''
 
-    filename = generate_file(code, 'cpp')
-
-    overview = begin_evaluation('c++', filename, None, outputs)
+    overview = begin_evaluation('c++', code, None, outputs)
 
     assert expected == overview
 
@@ -68,9 +64,7 @@ def test_compilation_error_on_hello_world_cpp():
         return 0;
     }'''
 
-    filename = generate_file(code, 'cpp')
-
-    overview = begin_evaluation('c++', filename, None, outputs)
+    overview = begin_evaluation('c++', code, None, outputs)
 
     assert expected == overview
 
@@ -106,9 +100,7 @@ def test_correct_sum_in_cpp():
     }
     '''
 
-    filename = generate_file(code, 'cpp')
-
-    overview = begin_evaluation('c++', filename, inputs, outputs)
+    overview = begin_evaluation('c++', code, inputs, outputs)
 
     assert overview == expected
 
@@ -144,9 +136,7 @@ def test_incorrect_sum_in_cpp():
     }
     '''
 
-    filename = generate_file(code, 'cpp')
-
-    overview = begin_evaluation('c++', filename, inputs, outputs)
+    overview = begin_evaluation('c++', code, inputs, outputs)
 
     assert overview == expected
 
@@ -182,9 +172,7 @@ def test_compilation_error_sum_in_cpp():
     }
     '''
 
-    filename = generate_file(code, 'cpp')
-
-    overview = begin_evaluation('c++', filename, inputs, outputs)
+    overview = begin_evaluation('c++', code, inputs, outputs)
 
     assert overview == expected
 
@@ -223,8 +211,6 @@ def test_timeout_error_sum_in_cpp():
     }
     '''
 
-    filename = generate_file(code, 'cpp')
-
-    overview = begin_evaluation('c++', filename, inputs, outputs)
+    overview = begin_evaluation('c++', code, inputs, outputs)
 
     assert overview == expected

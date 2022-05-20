@@ -12,3 +12,7 @@ supported_languages = {
     }
 
 }
+
+
+def is_not_supported(language: str) -> bool:
+    return language not in supported_languages

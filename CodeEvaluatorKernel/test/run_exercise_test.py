@@ -1,5 +1,7 @@
 import pytest
-from src.exercise.tester import run_exercise
+from src.exercise.run_exercise import run_exercise
+from src.exceptions.UnsupportedLanguageError import UnsupportedLanguageError
+from src.exceptions.CodeKernelException import CodeKernelException
 from test.mock.file_mocker import generate_file
 
 
@@ -15,9 +17,7 @@ def test_success_on_hello_world():
         return 0;
     }'''
 
-    filename = generate_file(code, 'cpp')
-
-    msg, results = run_exercise('c++', filename, None, ['HELLO WORLD'])
+    msg, results = run_exercise('c++', code, None, ['HELLO WORLD'])
 
     assert msg == msg_expected
 
@@ -36,9 +36,7 @@ def test_fail_on_hello_world():
         return 0;
     }'''
 
-    filename = generate_file(code, 'cpp')
-
-    msg, results = run_exercise('c++', filename, None, ['BYE WORLD'])
+    msg, results = run_exercise('c++', code, None, ['BYE WORLD'])
 
     assert msg == msg_expected
 
@@ -57,26 +55,38 @@ def test_compilation_error_on_hello_world():
         return 0;
     }'''
 
-    filename = generate_file(code, 'cpp')
-
-    msg, results = run_exercise('c++', filename, None, ['HELLO WORLD'])
+    msg, results = run_exercise('c++', code, None, ['HELLO WORLD'])
 
     assert msg == msg_expected
 
     assert results_expected == results
 
 
-def test_succes_on_hello_world_py():
+def test_success_on_hello_world_py():
     msg_expected = 'PASSED'
 
     results_expected = ['HELLO WORLD']
 
     code = '''print("HELLO WORLD")'''
 
-    filename = generate_file(code, 'py')
-
-    msg, results = run_exercise('python', filename, None, ['HELLO WORLD'])
+    msg, results = run_exercise('python', code, None, ['HELLO WORLD'])
 
     assert msg == msg_expected
 
     assert results_expected == results
+
+
+def test_invalid_language_error():
+    code = 'Sum a b = a+b'
+
+    try:
+        run_exercise('haskell', 'Example', None, ['Bye World'])
+
+        pytest.fail('Haskell currently is not a valid language')
+
+    except UnsupportedLanguageError:
+        pass
+
+    except CodeKernelException:
+        pytest.fail('CodeKernelException is not the expected exception')
+

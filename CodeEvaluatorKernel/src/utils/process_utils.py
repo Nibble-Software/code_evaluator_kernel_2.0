@@ -29,17 +29,7 @@ def run_code(process_name: str, args: [str], inputs: [str]) -> [str]:
 
 def no_input_execution(process: Popen) -> [str]:
     try:
-        data, error = process.communicate(timeout=10)
-
-        data = data.decode('latin1').split('\n')
-
-        data = [item.replace('\r', '') for item in data if item != '']
-
-        process.stdin.close()
-
-        process.stdout.close()
-
-        process.stderr.close()
+        data = __execute_process(process)
 
         if process.returncode != 0:
             raise ExecutionError()
@@ -61,17 +51,7 @@ def input_execution(process: Popen, inputs: [str]) -> [str]:
 
         process.stdin.write(input_string.encode('UTF-8'))
 
-        data, err = process.communicate(timeout=10)
-
-        data = data.decode('latin1').split('\n')
-
-        data = [item.replace('\r', '') for item in data if item != '']
-
-        process.stdout.close()
-
-        process.stdin.close()
-
-        process.stderr.close()
+        data = __execute_process(process)
 
         process.terminate()
 
@@ -89,3 +69,19 @@ def input_execution(process: Popen, inputs: [str]) -> [str]:
         process.communicate()
 
         raise CodeTimeoutError()
+
+
+def __execute_process(process):
+    data, error = process.communicate(timeout=10)
+
+    data = data.decode('latin1').split('\n')
+
+    data = [item.replace('\r', '') for item in data if item != '']
+
+    process.stdin.close()
+
+    process.stdout.close()
+
+    process.stderr.close()
+
+    return data
