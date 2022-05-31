@@ -20,7 +20,6 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip upgrade
       - name: Test Project with Pytest
         run: |
           cd CodeEvaluatorKernel
