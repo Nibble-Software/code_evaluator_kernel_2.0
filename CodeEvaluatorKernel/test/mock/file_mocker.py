@@ -1,17 +1,11 @@
-from src.utils.os_utils import get_tempdir,get_file_separator
+import tempfile
 
 
-def generate_file(code: str,extension: str) -> str:
-    tempdir = get_tempdir()
-
-    separator = get_file_separator()
-
-    filename = f'{tempdir}{separator}file.{extension}'
-
-    file = open(filename, 'w')
+def generate_file(code: str, extension: str) -> str:
+    file = tempfile.NamedTemporaryFile(mode='w', suffix=f'.{extension}', delete=False)
 
     file.write(code)
 
     file.close()
 
-    return filename
+    return file.name

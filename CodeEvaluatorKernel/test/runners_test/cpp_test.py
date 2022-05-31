@@ -1,14 +1,14 @@
 import pytest
 from pytest import fail
-from src.config.dotenv_loader import load_dotenv_variables
+
 from src.exceptions.CompilationError import CompilationError
 from src.runners.cpp_runner import compile_cpp, run_cpp
 from test.mock.file_mocker import generate_file
 from src.exceptions.CodeTimeoutError import CodeTimeoutError
+from src.exceptions.ExecutionError import ExecutionError
 
 
 def test_compile_cpp():
-    load_dotenv_variables()
 
     hello_world: str = '''
     #include <stdio.h>
@@ -24,7 +24,6 @@ def test_compile_cpp():
 
 
 def test_hello_world():
-    load_dotenv_variables()
 
     expected: str = 'HELLO WORLD'
 
@@ -44,7 +43,6 @@ def test_hello_world():
 
 
 def test_infinite_loop():
-    load_dotenv_variables()
 
     expected: str = 'HELLO WORLD'
 
@@ -66,8 +64,7 @@ def test_infinite_loop():
         pass
 
 
-def     test_addition():
-    load_dotenv_variables()
+def test_addition():
 
     expected: str = '5'
 
@@ -94,7 +91,6 @@ def     test_addition():
 
 
 def test_addition_infinite_loop():
-    load_dotenv_variables()
 
     try:
         expected: str = '5'
@@ -128,7 +124,6 @@ def test_addition_infinite_loop():
 
 def test_failed_compilation():
     try:
-        load_dotenv_variables()
 
         code = '''
     #include <stdio.h>
@@ -146,3 +141,34 @@ def test_failed_compilation():
 
     except CompilationError as compilation_error:
         pass
+
+
+def test_failed_execution():
+
+    try:
+        expected: str = '5'
+
+        inputs: [str] = ['2,', '3']
+
+        code = '''
+               #include <stdio.h>
+               int main(){
+                   int a,b;
+                   scanf("%d",&a);
+                   scanf("%d",&b);
+                   printf("%d",0/0);
+                   return -1;
+               }
+               '''
+
+        filename = generate_file(code, 'cpp')
+
+        results: [str] = run_cpp(filename, inputs)
+
+        fail("The test passes and doesn't have code -1")
+
+    except ExecutionError as error:
+        pass
+
+    except Exception as error2:
+        fail('It should raise an execution error')
