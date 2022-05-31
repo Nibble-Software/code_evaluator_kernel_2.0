@@ -2,6 +2,9 @@ name: Code Evaluator Kernel CI Pipeline
 
 on:
   pull_request:
+
+env:
+  TEMP_LOCATION: /tmp
   
 jobs:
   build:
