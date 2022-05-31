@@ -11,4 +11,4 @@ def get_file_separator() -> str:
 
 
 def get_os_name() -> str:
-    return os.environ['OS']
+    return platform.system()
