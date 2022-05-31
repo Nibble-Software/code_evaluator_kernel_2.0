@@ -5,6 +5,7 @@ on:
 
 env:
   TEMP_LOCATION: /tmp
+  OS_NAME: LINUX
   
 jobs:
   build:
