@@ -18,7 +18,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install C++
         run: |
-        sudo apt update && sudo apt install g++
+          sudo apt update && sudo apt install g++
       - name: Install Python dependencies
         run: |
           cd CodeEvaluatorKernel
