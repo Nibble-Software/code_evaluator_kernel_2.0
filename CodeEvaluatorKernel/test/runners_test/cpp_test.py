@@ -156,8 +156,8 @@ def test_failed_execution():
                    int a,b;
                    scanf("%d",&a);
                    scanf("%d",&b);
-                   printf("%d",a/0);
-                   return 0;
+                   printf("%d",0/0);
+                   return -1;
                }
                '''
 
