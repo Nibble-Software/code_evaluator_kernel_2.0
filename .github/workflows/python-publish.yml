@@ -12,7 +12,7 @@ on:
   workflow_run:
     workflows: [Code Evaluator Kernel CI Pipeline]
     types: [completed]
-    branches: [develop]
+    branches: [development]
 
 permissions:
   contents: read
