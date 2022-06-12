@@ -1,6 +1,4 @@
-import pytest
-from src.code_kernel.begin_evaluation import begin_evaluation
-from test.mock.file_mocker import generate_file
+from code_kernel.begin_evaluation import begin_evaluation
 
 
 def test_success_on_hello_world_cpp():

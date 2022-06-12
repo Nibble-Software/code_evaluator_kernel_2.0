@@ -1,9 +1,8 @@
-import pytest
 from pytest import fail
 
 from src.code_kernel_exceptions.CompilationError import CompilationError
 from src.code_kernel_runners.cpp_runner import compile_cpp, run_cpp
-from test.mock.file_mocker import generate_file
+from tests.mock.file_mocker import generate_file
 from src.code_kernel_exceptions.CodeTimeoutError import CodeTimeoutError
 from src.code_kernel_exceptions.ExecutionError import ExecutionError
 
@@ -165,7 +164,7 @@ def test_failed_execution():
 
         results: [str] = run_cpp(filename, inputs)
 
-        fail("The test passes and doesn't have code -1")
+        fail("The tests passes and doesn't have code -1")
 
     except ExecutionError as error:
         pass
