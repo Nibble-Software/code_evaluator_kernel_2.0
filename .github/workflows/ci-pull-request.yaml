@@ -1,4 +1,4 @@
-name: Code Evaluator Kernel CI Pipeline
+name: CI Pull Request 
 
 on:
   push:
@@ -15,8 +15,7 @@ env:
   OS_NAME: LINUX
   
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
