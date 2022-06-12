@@ -1,5 +1,5 @@
-from src.config.supported_languages import supported_languages
-from src.exceptions.UnsupportedLanguageError import UnsupportedLanguageError
+from src.code_kernel_config.supported_languages import supported_languages
+from src.code_kernel_exceptions.UnsupportedLanguageError import UnsupportedLanguageError
 
 
 def is_supported_language(language: str) -> bool:
