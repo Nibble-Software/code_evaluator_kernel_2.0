@@ -1,12 +1,9 @@
 import pytest
 from src.main.begin_evaluation import begin_evaluation
 from test.mock.file_mocker import generate_file
-from src.config.dotenv_loader import load_dotenv_variables
 
 
 def test_success_on_hello_world_cpp():
-
-    load_dotenv_variables()
 
     outputs = ['HELLO WORLD']
 
@@ -23,16 +20,12 @@ def test_success_on_hello_world_cpp():
         return 0;
     }'''
 
-    filename = generate_file(code, 'cpp')
-
-    overview = begin_evaluation('c++', filename, None, outputs)
+    overview = begin_evaluation('c++', code, None, outputs)
 
     assert expected == overview
 
 
 def test_failed_on_hello_world_cpp():
-
-    load_dotenv_variables()
 
     outputs = ['BYE WORLD']
 
@@ -49,16 +42,12 @@ def test_failed_on_hello_world_cpp():
         return 0;
     }'''
 
-    filename = generate_file(code, 'cpp')
-
-    overview = begin_evaluation('c++', filename, None, outputs)
+    overview = begin_evaluation('c++', code, None, outputs)
 
     assert expected == overview
 
 
 def test_compilation_error_on_hello_world_cpp():
-
-    load_dotenv_variables()
 
     outputs = ['HELLO WORLD']
 
@@ -75,16 +64,12 @@ def test_compilation_error_on_hello_world_cpp():
         return 0;
     }'''
 
-    filename = generate_file(code, 'cpp')
-
-    overview = begin_evaluation('c++', filename, None, outputs)
+    overview = begin_evaluation('c++', code, None, outputs)
 
     assert expected == overview
 
 
 def test_correct_sum_in_cpp():
-
-    load_dotenv_variables()
 
     outputs = ['5', '7', '0']
 
@@ -115,15 +100,12 @@ def test_correct_sum_in_cpp():
     }
     '''
 
-    filename = generate_file(code, 'cpp')
-
-    overview = begin_evaluation('c++', filename, inputs, outputs)
+    overview = begin_evaluation('c++', code, inputs, outputs)
 
     assert overview == expected
 
 
 def test_incorrect_sum_in_cpp():
-    load_dotenv_variables()
 
     outputs = ['5', '7', '0']
 
@@ -154,15 +136,12 @@ def test_incorrect_sum_in_cpp():
     }
     '''
 
-    filename = generate_file(code, 'cpp')
-
-    overview = begin_evaluation('c++', filename, inputs, outputs)
+    overview = begin_evaluation('c++', code, inputs, outputs)
 
     assert overview == expected
 
 
 def test_compilation_error_sum_in_cpp():
-    load_dotenv_variables()
 
     outputs = ['5', '7', '0']
 
@@ -193,15 +172,12 @@ def test_compilation_error_sum_in_cpp():
     }
     '''
 
-    filename = generate_file(code, 'cpp')
-
-    overview = begin_evaluation('c++', filename, inputs, outputs)
+    overview = begin_evaluation('c++', code, inputs, outputs)
 
     assert overview == expected
 
 
 def test_timeout_error_sum_in_cpp():
-    load_dotenv_variables()
 
     outputs = ['5', '7', '0']
 
@@ -235,8 +211,6 @@ def test_timeout_error_sum_in_cpp():
     }
     '''
 
-    filename = generate_file(code, 'cpp')
-
-    overview = begin_evaluation('c++', filename, inputs, outputs)
+    overview = begin_evaluation('c++', code, inputs, outputs)
 
     assert overview == expected
