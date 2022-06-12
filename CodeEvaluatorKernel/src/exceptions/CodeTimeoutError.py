@@ -1,2 +1,0 @@
-class CodeTimeoutError(Exception):
-    pass
