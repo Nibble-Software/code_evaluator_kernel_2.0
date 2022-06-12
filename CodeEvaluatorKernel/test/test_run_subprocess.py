@@ -1,7 +1,7 @@
 import pytest
 from pytest import fail
-from src.utils.process_utils import run_process
-from src.exceptions.FailedProcessError import FailedProcessError
+from src.code_kernel_utils.process_utils import run_process
+from src.code_kernel_exceptions.FailedProcessError import FailedProcessError
 
 
 def test_gcc():

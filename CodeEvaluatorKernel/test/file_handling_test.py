@@ -1,6 +1,6 @@
 import pytest
-from src.file_handling.create_temp_file import create_temp_file
-from src.file_handling.delete_temp_file import delete_temp_file
+from src.code_kernel_file_handling.create_temp_file import create_temp_file
+from src.code_kernel_file_handling.delete_temp_file import delete_temp_file
 
 
 def test_cpp_workflow():

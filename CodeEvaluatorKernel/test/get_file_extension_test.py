@@ -1,7 +1,7 @@
 import pytest
 from pytest import fail
-from src.utils.language_utils import get_file_extension
-from src.exceptions.UnsupportedLanguageError import UnsupportedLanguageError
+from src.code_kernel_utils.language_utils import get_file_extension
+from src.code_kernel_exceptions.UnsupportedLanguageError import UnsupportedLanguageError
 
 
 def test_get_cpp_extension():

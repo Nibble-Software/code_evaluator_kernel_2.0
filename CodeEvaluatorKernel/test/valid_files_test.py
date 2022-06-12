@@ -1,4 +1,4 @@
-from src.utils.language_utils import is_supported_language
+from src.code_kernel_utils.language_utils import is_supported_language
 
 
 def test_valid_cpp_language():

@@ -1,6 +1,6 @@
 import pytest
 from test.mock.file_mocker import generate_file
-from src.runners.py_runner import run_py
+from src.code_kernel_runners.py_runner import run_py
 
 
 def test_hello_world():

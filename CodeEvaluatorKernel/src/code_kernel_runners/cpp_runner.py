@@ -1,7 +1,7 @@
-from src.utils.process_utils import run_process, run_code
-from src.utils.os_utils import get_tempdir, get_file_separator, get_os_name
-from src.exceptions.FailedProcessError import FailedProcessError
-from src.exceptions.CompilationError import CompilationError
+from src.code_kernel_utils.process_utils import run_process, run_code
+from src.code_kernel_utils.os_utils import get_tempdir, get_file_separator, get_os_name
+from src.code_kernel_exceptions.FailedProcessError import FailedProcessError
+from src.code_kernel_exceptions.CompilationError import CompilationError
 
 
 def run_cpp(filepath: str, inputs: [str]) -> [str]:
