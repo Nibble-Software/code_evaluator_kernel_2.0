@@ -1,7 +1,14 @@
 name: Code Evaluator Kernel CI Pipeline
 
 on:
+  push:
+    branches: 
+      - 'main'
+      - 'development'
   pull_request:
+    branches:
+      - 'main'
+      - 'development'
 
 env:
   TEMP_LOCATION: /tmp
