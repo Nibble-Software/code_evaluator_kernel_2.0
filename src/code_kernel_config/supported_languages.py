@@ -1,4 +1,4 @@
-from src.code_kernel_runners.cpp_runner import run_cpp
+from code_kernel_runners.cpp_runner import run_cpp
 from src.code_kernel_runners.py_runner import run_py
 
 supported_languages = {

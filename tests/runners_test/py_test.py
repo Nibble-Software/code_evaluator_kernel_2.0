@@ -1,5 +1,5 @@
 import pytest
-from test.mock.file_mocker import generate_file
+from tests.mock.file_mocker import generate_file
 from src.code_kernel_runners.py_runner import run_py
 
 

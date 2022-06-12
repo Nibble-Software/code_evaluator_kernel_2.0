@@ -1,5 +1,4 @@
-from src.code_kernel_exercise.run_exercise import run_exercise
-
+from code_kernel_exercise.run_exercise import run_exercise
 
 def begin_evaluation(language: str, solution: str, inputs: [str], outputs: [str]) -> dict:
 

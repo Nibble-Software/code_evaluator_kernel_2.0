@@ -2,7 +2,6 @@ import pytest
 from src.code_kernel_exercise.run_exercise import run_exercise
 from src.code_kernel_exceptions.UnsupportedLanguageError import UnsupportedLanguageError
 from src.code_kernel_exceptions.CodeKernelException import CodeKernelException
-from test.mock.file_mocker import generate_file
 
 
 def test_success_on_hello_world():
