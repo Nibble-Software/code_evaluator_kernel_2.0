@@ -26,7 +26,10 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r CodeEvaluatorKernel/requirements.txt
+          pip install -r requirements.txt
+      - name: Install the kernel for testing
+        run: |
+          pip install .
       - name: Test Project with Pytest
         run: |
           pytest
@@ -54,4 +57,3 @@ jobs:
         user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
         repository_url: https://test.pypi.org/legacy/
-        packages_dir: CodeEvaluatorKernel/dist/
