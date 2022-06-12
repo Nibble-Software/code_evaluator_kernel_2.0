@@ -1,5 +1,5 @@
 import pytest
-from src.main.begin_evaluation import begin_evaluation
+from src.code_kernel.begin_evaluation import begin_evaluation
 from test.mock.file_mocker import generate_file
 
 

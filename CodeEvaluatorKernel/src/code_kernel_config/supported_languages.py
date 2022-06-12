@@ -1,5 +1,5 @@
-from src.runners.cpp_runner import run_cpp
-from src.runners.py_runner import run_py
+from src.code_kernel_runners.cpp_runner import run_cpp
+from src.code_kernel_runners.py_runner import run_py
 
 supported_languages = {
     'c++': {
