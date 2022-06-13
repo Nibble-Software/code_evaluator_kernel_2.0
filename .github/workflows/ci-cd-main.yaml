@@ -1,9 +1,8 @@
 name: CI/CD Main
 
 on:
-  push:
-    branches:
-      - 'main'
+  release:
+
 env:
   TEMP_LOCATION: /tmp
   OS_NAME: LINUX
@@ -33,3 +32,26 @@ jobs:
       - name: Test Project with Pytest
         run: |
           pytest
+  release:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+      - name: Install building package
+        run: |
+          python -m pip install --upgrade pip
+          pip install build
+      - name: Build package
+        run: |
+          cd CodeEvaluatorKernel
+          python -m build
+      - name: Publish package on Pypi
+        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_PUBLISH_TOKEN }}
