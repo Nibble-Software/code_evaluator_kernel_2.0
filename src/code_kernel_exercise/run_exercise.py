@@ -1,11 +1,11 @@
-from src.code_kernel_utils.language_utils import get_runner
-from src.code_kernel_exceptions.CompilationError import CompilationError
-from src.code_kernel_exceptions.ExecutionError import ExecutionError
-from src.code_kernel_exceptions.CodeTimeoutError import CodeTimeoutError
-from src.code_kernel_file_handling.create_temp_file import create_temp_file
-from src.code_kernel_exceptions.UnsupportedLanguageError import UnsupportedLanguageError
-from src.code_kernel_config.supported_languages import is_not_supported
-from src.code_kernel_exceptions.CodeKernelException import CodeKernelException
+from code_kernel_utils.language_utils import get_runner
+from code_kernel_exceptions.CompilationError import CompilationError
+from code_kernel_exceptions.ExecutionError import ExecutionError
+from code_kernel_exceptions.CodeTimeoutError import CodeTimeoutError
+from code_kernel_file_handling.create_temp_file import create_temp_file
+from code_kernel_exceptions.UnsupportedLanguageError import UnsupportedLanguageError
+from code_kernel_config.supported_languages import is_not_supported
+from code_kernel_exceptions.CodeKernelException import CodeKernelException
 
 
 status: [str] = ['PASSED', 'FAILED', 'COMPILATION_ERROR', 'EXECUTION_ERROR', 'TIMEOUT_ERROR','LANGUAGE_NOT_SUPPORTED']

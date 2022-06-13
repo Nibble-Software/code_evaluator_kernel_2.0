@@ -1,8 +1,8 @@
 import subprocess
 from subprocess import PIPE, TimeoutExpired, Popen
-from src.code_kernel_exceptions.FailedProcessError import FailedProcessError
-from src.code_kernel_exceptions.CodeTimeoutError import CodeTimeoutError
-from src.code_kernel_exceptions.ExecutionError import ExecutionError
+from code_kernel_exceptions.FailedProcessError import FailedProcessError
+from code_kernel_exceptions.CodeTimeoutError import CodeTimeoutError
+from code_kernel_exceptions.ExecutionError import ExecutionError
 
 
 def run_process(process_name: str, args: [str]):

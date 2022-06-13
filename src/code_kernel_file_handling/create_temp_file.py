@@ -1,5 +1,6 @@
 import tempfile
-from src.code_kernel_config.supported_languages import supported_languages
+
+from code_kernel_config.supported_languages import supported_languages
 
 
 def create_temp_file(body: str, language: str) -> str:
