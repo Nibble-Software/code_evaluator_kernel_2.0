@@ -1,10 +1,10 @@
 from pytest import fail
 
-from src.code_kernel_exceptions.CompilationError import CompilationError
-from src.code_kernel_runners.cpp_runner import compile_cpp, run_cpp
+from code_kernel_exceptions.CompilationError import CompilationError
+from code_kernel_runners.cpp_runner import compile_cpp, run_cpp
 from tests.mock.file_mocker import generate_file
-from src.code_kernel_exceptions.CodeTimeoutError import CodeTimeoutError
-from src.code_kernel_exceptions.ExecutionError import ExecutionError
+from code_kernel_exceptions.CodeTimeoutError import CodeTimeoutError
+from code_kernel_exceptions.ExecutionError import ExecutionError
 
 
 def test_compile_cpp():
